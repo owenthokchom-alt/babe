@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Will You Be My Valentine? 💘</title>
+
+    <!-- Lovey Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #1d976c, #93f9b9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 45px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.3);
+            max-width: 420px;
+            backdrop-filter: blur(12px);
+            z-index: 2;
+        }
+
+        h1, h2 {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        h1 { font-size: 52px; }
+        h2 { font-size: 36px; }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        button {
+            padding: 14px 34px;
+            font-size: 17px;
+            border: none;
+            border-radius: 35px;
+            cursor: pointer;
+            margin: 10px;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .yes {
+            background-color: #0f9d58;
+            color: white;
+        }
+
+        .no {
+            background-color: white;
+            color: #0f9d58;
+            position: absolute;
+        }
+
+        .music-btn {
+            background-color: rgba(255,255,255,0.95);
+            color: #0f9d58;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+        }
+
+        /* Celebration screen */
+        .celebration {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, #1d976c, #93f9b9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .celebration img {
+            width: 250px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .celebration h1 {
+            font-size: 60px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Music -->
+    <audio id="bgMusic" loop>
+        <source src="love.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Main Card -->
+    <div class="card" id="mainCard">
+        <h1>My Love 💚</h1>
+
+        <button class="music-btn" onclick="startMusic()">Tap to Start 💖</button>
+
+        <p>
+            You are my calm, my happiness,<br>
+            and my forever kind of love 💕
+        </p>
+
+        <h2>Will you be my Valentine? 💖</h2>
+
+        <button class="yes" onclick="yesClicked()">Yes 😍</button>
+        <button class="no" onmouseover="moveNo()">No 😜</button>
+    </div>
+
+    <!-- Celebration Screen -->
+    <div class="celebration" id="celebration">
+        <img src="https://media.giphy.com/media/3oz8xAFtqoOUUrsh7W/giphy.gif" alt="Hooray">
+        <h1>Hoorayyy 🎉💖</h1>
+        <p>Forever yours 💚</p>
+    </div>
+
+    <script>
+        function startMusic() {
+            document.getElementById("bgMusic").play();
+        }
+
+        function yesClicked() {
+            document.getElementById("bgMusic").play();
+            document.getElementById("mainCard").style.display = "none";
+            document.getElementById("celebration").style.display = "flex";
+        }
+
+        function moveNo() {
+            const noBtn = document.querySelector('.no');
+            noBtn.style.left = Math.random() * (window.innerWidth - 100) + 'px';
+            noBtn.style.top = Math.random() * (window.innerHeight - 50) + 'px';
+        }
+    </script>
+
+</body>
+</html>
